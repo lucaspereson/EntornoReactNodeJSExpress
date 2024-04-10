@@ -20,3 +20,8 @@
             "start-frontend": "cd frontend && npm start",
             "build-frontend": "cd frontend && npm run build"
         },
+
+    
+
+    npm install @mui/material @emotion/react @emotion/styled @mui/icons-material
+
