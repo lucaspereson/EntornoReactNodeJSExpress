@@ -1,7 +1,7 @@
 import React from "react";
 import ResponsiveAppBar from "../components/ResponsiveAppBar.js"
 
-const pages = ['Herramientas', 'Formularios', 'Reportes'];
+const pages = ['Inicio', 'Herramientas', 'Formularios', 'Reportes'];
 
 function Inicio() {
   return (
