@@ -35,7 +35,7 @@ function ResponsiveAppBar({pages}) {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="fixed" sx={{zIndex: 10000}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
