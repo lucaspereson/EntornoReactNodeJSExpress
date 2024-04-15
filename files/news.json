@@ -1,0 +1,22 @@
+[
+      {
+        "id": 1,
+        "title": "Nuevo descubrimiento científico",
+        "summary": "Científicos han descubierto un nuevo elemento que podría cambiar nuestra comprensión de la química.",
+        "imageUrl": "https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/4C7F/production/_105038591_1-1.jpg",
+        "content": "Un grupo de científicos internacionales ha descubierto un nuevo elemento químico que podría tener aplicaciones importantes en la tecnología y la medicina. El equipo de investigadores, liderado por el Dr. Fulano de Tal, ha estado trabajando en este proyecto desde hace más de una década. El nuevo elemento, temporalmente nombrado ununpentium, ha mostrado propiedades únicas que podrían ser clave en el desarrollo de nuevos materiales.",
+        "datePublished": "2024-04-10",
+        "author": "Juan Pérez"
+      },
+      {
+        "id": 2,
+        "title": "Cambios políticos significativos en Europa",
+        "summary": "Las recientes elecciones en Europa han llevado a un cambio significativo en la política regional.",
+        "imageUrl": "https://www.bbvaopenmind.com/wp-content/uploads/2016/02/BBVA-OpenMind-Europa-Solana-20.jpg",
+        "content": "Las elecciones europeas de este año han resultado en un cambio dramático en el panorama político. Varios partidos de centro-derecha han ganado terreno, mientras que los partidos tradicionalmente dominantes han visto una disminución en el apoyo. Este cambio podría tener efectos de largo alcance en las políticas de la Unión Europea, especialmente en lo que respecta a la inmigración y las políticas económicas.",
+        "datePublished": "2024-04-12",
+        "author": "Ana López"
+      }
+    ]
+
+  
