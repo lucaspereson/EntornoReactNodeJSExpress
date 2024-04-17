@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon backend/server.js",
+    "backend": "nodemon backend/server.js",
+    "start-backend": "node --watch backend/ApisServer/ServerLocal.js",
     "start-frontend": "cd frontend && npm start",
+    "start": "concurrently \"npm run start-frontend\" \"npm run start-backend\"",
     "build-frontend": "cd frontend && npm run build"
   },
   "keywords": [],
@@ -17,10 +19,15 @@
     "@emotion/styled": "^11.11.5",
     "@mui/icons-material": "^5.15.15",
     "@mui/material": "^5.15.15",
+    "axios": "^1.6.8",
     "csv-parser": "^3.0.0",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "react-router-dom": "^6.22.3",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "concurrently": "^8.2.2"
   }
 }
