@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -12,12 +12,19 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import { useNavigate, Link } from 'react-router-dom';
+import { useAuth } from '../components/AuthContext'; // Asegúrate de que la ruta sea correcta
+import BasicAlert from '../components/BasicAlert'; // Para alertas
 
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Perfil', 'Cuenta'];
 
 function ResponsiveAppBar({pages}) {
+  const navigate = useNavigate();
+  const { setUser } = useAuth();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [alertOpen, setAlertOpen] = useState(false);
+  const [alertInfo, setAlertInfo] = useState({ severity: '', message: '' });
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -32,6 +39,25 @@ function ResponsiveAppBar({pages}) {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+  };
+
+  const handleAlertClose = () => {
+    setAlertOpen(false);
+  };
+
+  const showBasicAlert = (severity, message) => {
+      setAlertInfo({ severity, message });
+      setAlertOpen(true);
+  };
+
+  const handleLogout = () => {
+      showBasicAlert('success', 'Sesión cerrada exitosamente. Redirigiendo...');
+      setTimeout(() => {
+        localStorage.removeItem('user');
+        setUser(null);
+        navigate("/login");
+      }, 3000); // Retraso antes de redirigir para mostrar alerta
+      handleCloseUserMenu(); // Cierra el menú de usuario
   };
 
   return (
@@ -87,8 +113,8 @@ function ResponsiveAppBar({pages}) {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page} onClick={handleCloseNavMenu} to={page[1]}>
+                  <Typography textAlign="center">{page[0]}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -118,8 +144,9 @@ function ResponsiveAppBar({pages}) {
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
+                href={page[1]}
               >
-                {page}
+                {page[0]}
               </Button>
             ))}
           </Box>
@@ -127,7 +154,7 @@ function ResponsiveAppBar({pages}) {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="Remy Sharp" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI2ZQuBchNYHw1SPS4KSSBT9UQ92eJ70Tt159r5EDdgw&s" />
               </IconButton>
             </Tooltip>
             <Menu
@@ -147,14 +174,24 @@ function ResponsiveAppBar({pages}) {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem key={setting} onClick={handleCloseUserMenu} component={Link} to={`/${setting.replace(/\s+/g, '-').toLowerCase()}`}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
+                <MenuItem key={'Cerrar sesión'} onClick={handleLogout} sx={{'&:hover': {backgroundColor:'#ffbaba'}}}>
+                  <Typography textAlign="center" >{'Cerrar sesión'}</Typography>
+                </MenuItem>
+              
             </Menu>
           </Box>
         </Toolbar>
       </Container>
+      <BasicAlert
+          open={alertOpen}
+          handleClose={handleAlertClose}
+          severity={alertInfo.severity}
+          message={alertInfo.message}
+            />
     </AppBar>
   );
 }

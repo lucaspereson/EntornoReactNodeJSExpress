@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import InputFileUpload from "../components/InputFileUpload.js";
-import DataTable from "../components/DataTable.js";
-import useCsvToJson from "../components/useCsvToJson.js";
+import InputFileUpload from "./InputFileUpload.js";
+import DataTable from "./DataTable.js";
+import useCsvToJson from "./useCsvToJson.js";
 
-function ComponentInicio() {
+function TableGroups() {
   
   //Utilizacion del boton input para cargar el archivo
     const [file, setFile] = useState(null);
@@ -69,4 +69,4 @@ function ComponentInicio() {
   );
 }
 
-export default ComponentInicio;
+export default TableGroups;

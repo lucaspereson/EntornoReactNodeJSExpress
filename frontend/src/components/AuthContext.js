@@ -3,24 +3,41 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [loading, setLoading] = useState(true);  // Nuevo estado para manejar la carga
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);  // Nuevo estado para manejar la carga
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    setIsAuthenticated(!!token);
-    setLoading(false);  // Actualiza el estado de carga después de verificar el token
-  }, []);
+    const contextValue = {
+        user,
+        setUser,
+        loading,
+        setLoading,
+    };
+    useEffect(() => {
+        const userData = JSON.parse(localStorage.getItem('user'));
+        if (userData) {
+            setUser(userData);
+        }
+        setLoading(false);
+    }, []);
 
-  if (loading) {
-    return <div>Loading...</div>;  // Opcionalmente, mostrar algún indicador de carga
-  }
+    useEffect(() => {
+        if (user) {
+            localStorage.setItem('user', JSON.stringify(user));
+        } else {
+            localStorage.removeItem('user');
+        }
+    }, [user]);
 
-  return (
-    <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
-      {children}
-    </AuthContext.Provider>
-  );
+
+    if (loading) {
+        return <div>Loading...</div>;  // Opcionalmente, mostrar algún indicador de carga
+    }
+
+    return (
+        <AuthContext.Provider value={ contextValue }>
+        {children}
+        </AuthContext.Provider>
+    );
 };
 
 export const useAuth = () => useContext(AuthContext);

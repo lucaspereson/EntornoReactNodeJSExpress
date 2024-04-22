@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import NewsItem from '../components/NewsItem';
 import ResponsiveAppBar from '../components/ResponsiveAppBar';
-const pages = ['Inicio', 'Herramientas', 'Formularios', 'Reportes'];
+const pages = [['Home', '/homeAdmin'], ['Usuarios', '/agregar-usuario'], ['Modulos', '/modulos']];
 
-function HomePage() {
+function HomePageAdmin() {
   const [newsList, setNewsList] = useState([]);
 
   useEffect(() => {
     const fetchNews = async () => {
-      const response = await fetch('http://localhost:1234/api/news');
+      const response = await fetch('http://localhost:5001/news');
       const data = await response.json();
       setNewsList(data);
     };
@@ -31,4 +31,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default HomePageAdmin;
