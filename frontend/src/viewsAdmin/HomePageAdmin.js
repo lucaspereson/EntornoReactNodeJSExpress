@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import NewsItem from '../components/NewsItem';
-import ResponsiveAppBar from '../components/ResponsiveAppBar';
-const pages = [['Home', '/homeAdmin'], ['Usuarios', '/agregar-usuario'], ['Modulos', '/modulos']];
+import AppBar from '../components/AppBar.js';
 
 function HomePageAdmin() {
   const [newsList, setNewsList] = useState([]);
@@ -18,7 +17,7 @@ function HomePageAdmin() {
 
   return (
     <div>
-      <ResponsiveAppBar pages={pages}/>
+      <AppBar />
       <h1 style={{marginTop: 100}}>Últimas Noticias</h1>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
         {newsList.length > 0 ? (

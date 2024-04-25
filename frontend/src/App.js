@@ -6,7 +6,7 @@ import HomePage from './viewsProfesor/HomePage';
 import Login from './viewsAll/Login';
 import ArmarGrupos from './viewsProfesor/ArmarGrupos';
 import ModificarGrupos from './viewsProfesor/ModificarGrupos';
-
+import { HeadersProvider } from './components/HeadersProvider';
 import HomePageAdmin from './viewsAdmin/HomePageAdmin';
 import AgregarUsuario from './viewsAdmin/AgregarUsuario';
 import ModificarUsuario from './viewsAdmin/ModificarUsuario';
@@ -14,14 +14,15 @@ import ModificarUsuario from './viewsAdmin/ModificarUsuario';
 function App() {
   return (
       <div className="App">
+        <HeadersProvider>
           <Routes>
             <Route path="/login"  element={<Login />} />
             <Route path="/"       element={<Navigate replace to="/login" />} />
             <Route element={<ProtectedRoute allowedRoles={['profesor']}  />}>
               <Route path="/home" element={<HomePage />} />
-              <Route path="/armar-grupos" element={<ArmarGrupos />} />
-              <Route path="/modificar-grupos" element={<ModificarGrupos />} />
-              <Route path="/eliminar-grupos" element={<ArmarGrupos />} />
+              <Route path="/armar-equipos" element={<ArmarGrupos />} />
+              <Route path="/modificar-equipos" element={<ModificarGrupos />} />
+              <Route path="/eliminar-equipos" element={<ArmarGrupos />} />
               <Route path="/ruta-de-aprendizaje" element={<ArmarGrupos />} />
             </Route>
             <Route element={<ProtectedRoute allowedRoles={['admin']}  />}>
@@ -30,6 +31,7 @@ function App() {
               <Route path="/modificar-usuario" element={<ModificarUsuario />} />
             </Route>
           </Routes>
+        </HeadersProvider>
       </div>
   );
 }

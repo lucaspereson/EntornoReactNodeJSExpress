@@ -8,17 +8,21 @@ import BasicAlert from '../components/BasicAlert';
 export default function AddUsers() {
   const roles = [
     {
-      value: 'Profesor',
+      value: 'profesor',
       label: 'Profesor',
     },
     {
-      value: 'Administrador',
+      value: 'admin',
       label: 'Administrador',
     }
   ];
-  
+  const [name, setName] = useState('');
+  const [lastname, setLastname] = useState('');
+  const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [role, setRole] = useState('');
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,7 +32,7 @@ export default function AddUsers() {
           headers: {
               'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ username, password })
+          body: JSON.stringify({ name, lastname, email, username, password, role })
       });
       if (!response.ok) {
           const errorData = await response.json(); // Intenta obtener más detalles del error del cuerpo de la respuesta
@@ -60,11 +64,12 @@ export default function AddUsers() {
     <Box
       component="form"
       sx={{
-        '& .MuiTextField-root': { m: '1%', width: '48%' }, // Ajusta el margen y el ancho para que quepan dos por fila
+        '& .MuiTextField-root': { marginX: 5, marginY: 2, width: '40%' }, // Ajusta el margen y el ancho para que quepan dos por fila
         display: 'flex',  // Habilita flexbox
         flexWrap: 'wrap', // Permite el salto de línea
         justifyContent:'space-between', // Justifica el contenido de manera uniforme
         alignItems: 'center' // Centra los elementos verticalmente
+        ,mt:12
       }}
       noValidate
       autoComplete="off"
@@ -75,18 +80,21 @@ export default function AddUsers() {
         id="name"
         label="Nombre"
         type='text'
+        value={name} onChange={(e) => setName(e.target.value)}
       />
       <TextField
         required
         id="lastname"
         label="Apellido"
         type='text'
+        value={lastname} onChange={(e) => setLastname(e.target.value)}
       />
         <TextField
         required
         id="email"
         label="Email"
         type='email'
+        value={email} onChange={(e) => setEmail(e.target.value)}
       />
         <TextField
         required
@@ -121,6 +129,7 @@ export default function AddUsers() {
             sx: { textAlign: 'left' }
           }
         }}
+        value={role} onChange={(e) => setRole(e.target.value)}
       >
         {roles.map((option) => (
           <MenuItem key={option.value} value={option.value}>

@@ -17,14 +17,25 @@ import { useAuth } from '../components/AuthContext'; // Asegúrate de que la rut
 import BasicAlert from '../components/BasicAlert'; // Para alertas
 
 const settings = ['Perfil', 'Cuenta'];
+const pagesProfesor = [['Home', ['Home']], ['Heramientas', ['Herramientas']], ['Grupos', ['Armar equipos', 'Modificar equipos', 'Eliminar equipos', 'Ruta de aprendizaje']], ['Reportes', ['Reportes']]];
+const pagesAdmin = [['Home', ['HomeAdmin']], ['Usuarios', ['Agregar usuario', 'Gestionar usuarios']], ['Modulos', ['Modulos']]];
 
-function ResponsiveAppBar({pages}) {
+function ResponsiveAppBar() {
   const navigate = useNavigate();
   const { setUser } = useAuth();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [alertOpen, setAlertOpen] = useState(false);
   const [alertInfo, setAlertInfo] = useState({ severity: '', message: '' });
+  let pages = []
+  const pagesDefinition = () => {
+    const role = localStorage.getItem('role');
+    if (role && role === 'profesor') {
+      pages = pagesProfesor;
+    } else if (role && role === 'admin') {
+      pages = pagesAdmin;
+    }
+  }
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -112,6 +123,7 @@ function ResponsiveAppBar({pages}) {
                 display: { xs: 'block', md: 'none' },
               }}
             >
+              {pagesDefinition()}
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu} to={page[1]}>
                   <Typography textAlign="center">{page[0]}</Typography>

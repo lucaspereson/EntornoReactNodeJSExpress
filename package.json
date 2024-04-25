@@ -20,6 +20,7 @@
     "@mui/icons-material": "^5.15.15",
     "@mui/material": "^5.15.15",
     "axios": "^1.6.8",
+    "beautiful-react-diagrams": "^0.5.1",
     "csv-parser": "^3.0.0",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",

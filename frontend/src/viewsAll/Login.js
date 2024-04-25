@@ -69,7 +69,7 @@ function Login() {
                     justifyContent: 'center', 
                     // Centrar verticalmente
                     alignItems: 'center'}}>  
-            <Typography  variant="h4" component="h1" fontFamily="" sx={{ color: '#1F356C', marginTop: 1, fontFamily:'"Jersey 20", cursive', fontSize: 60, fontWeight: 'bold'}} >
+            <Typography  variant="h4" component="h1" sx={{ color: '#1F356C', marginTop: 1, fontFamily:'"Jersey 20", cursive', fontSize: 60, fontWeight: 'bold'}} >
                 AGILE DRIVEN EDUCATION
             </Typography>
             <Typography variant="h4" component="h1" sx={{ marginTop:-2, color: '#1F356C', fontFamily:'"Dancing Script", cursive;' , fontOpticalSizing: 'auto', fontWeight: 'bold', fontSize: 50}}>

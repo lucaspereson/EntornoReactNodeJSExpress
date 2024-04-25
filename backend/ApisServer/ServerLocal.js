@@ -28,19 +28,19 @@ app.get('/users', (req, res) => {
 });
 
 app.post('/register', async (req, res) => {
-    const { username, password } = req.body;
+    const { name, lastname, email, username, password, role } = req.body;
     try {
         // Leer el archivo JSON donde se almacenan los usuarios
         const data = await fs.readFile(filePathUsers, 'utf8');
         const users = JSON.parse(data);
-
+        
         // Verificar si el usuario ya existe
         if (users.find(user => user.username === username)) {
             return res.status(409).send('User already exists');
         }
 
         // Añadir el nuevo usuario al array
-        const newUser = { id: uuidv4(), username, password };
+        const newUser = { id: uuidv4(), name, lastname, email, username, password, role };
         users.push(newUser);
 
         // Escribir el array actualizado de vuelta al archivo JSON
@@ -90,7 +90,7 @@ function verifyToken(req, res, next) {
       return res.status(401).json({ message: "Se requiere un token para la autenticación." });
     }
     try {
-      const payload = jwt.verify(token, process.env.JWT_SECRET);
+      const payload = jwt.verify(token, secretKey);
       req.username = payload.username;
       req.newToken = generateNewToken(payload);
       next();
