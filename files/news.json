@@ -1,22 +1,51 @@
-[
-      {
-        "id": 1,
-        "title": "Nuevo descubrimiento científico",
-        "summary": "Científicos han descubierto un nuevo elemento que podría cambiar nuestra comprensión de la química.",
-        "imageUrl": "https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/4C7F/production/_105038591_1-1.jpg",
-        "content": "Un grupo de científicos internacionales ha descubierto un nuevo elemento químico que podría tener aplicaciones importantes en la tecnología y la medicina. El equipo de investigadores, liderado por el Dr. Fulano de Tal, ha estado trabajando en este proyecto desde hace más de una década. El nuevo elemento, temporalmente nombrado ununpentium, ha mostrado propiedades únicas que podrían ser clave en el desarrollo de nuevos materiales.",
-        "datePublished": "2024-04-10",
-        "author": "Juan Pérez"
-      },
-      {
-        "id": 2,
-        "title": "Cambios políticos significativos en Europa",
-        "summary": "Las recientes elecciones en Europa han llevado a un cambio significativo en la política regional.",
-        "imageUrl": "https://www.bbvaopenmind.com/wp-content/uploads/2016/02/BBVA-OpenMind-Europa-Solana-20.jpg",
-        "content": "Las elecciones europeas de este año han resultado en un cambio dramático en el panorama político. Varios partidos de centro-derecha han ganado terreno, mientras que los partidos tradicionalmente dominantes han visto una disminución en el apoyo. Este cambio podría tener efectos de largo alcance en las políticas de la Unión Europea, especialmente en lo que respecta a la inmigración y las políticas económicas.",
-        "datePublished": "2024-04-12",
-        "author": "Ana López"
-      }
-    ]
-
-  
+[{
+  "id": 1,
+  "title": "Revolucionando la Pedagogía con Métodos Ágiles",
+  "summary": "Exploramos cómo la metodología ágil puede transformar las prácticas pedagógicas en las aulas modernas.",
+  "imageUrl": "https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg",
+  "link": "https://www.edutopia.org/article/bringing-agile-methodology-classroom",
+  "content": "La aplicación de metodologías ágiles en el ámbito educativo no se limita solo a la gestión de proyectos. Este enfoque está revolucionando la forma en que los educadores planifican e implementan sus lecciones, promoviendo una interacción más efectiva y dinámica en el aula. Al adaptar elementos como sprints, retrospectivas y reuniones diarias, los profesores pueden mejorar la participación estudiantil y adaptar rápidamente sus métodos de enseñanza para abordar mejor las necesidades de sus alumnos.",
+  "datePublished": "2024-04-20",
+  "author": "María Fernández"
+},
+{
+  "id": 2,
+  "title": "Agilidad en la Gestión Educativa: Casos de Éxito",
+  "summary": "Este artículo destaca varios estudios de caso donde la agilidad ha mejorado significativamente la gestión educativa.",
+  "imageUrl": "https://images.unsplash.com/photo-1584697964358-3e14ca57658b",
+  "link": "https://hbr.org/2020/07/what-agile-leadership-looks-like",
+  "content": "La gestión educativa se enfrenta a constantes desafíos y cambios que requieren respuestas rápidas y efectivas. Implementando prácticas ágiles, algunas instituciones han logrado no solo mejorar la eficiencia operativa, sino también fomentar un entorno más colaborativo y adaptativo. Los casos de éxito presentados demuestran cómo la adaptabilidad y la iteración continua pueden conducir a resultados sobresalientes en el contexto educativo.",
+  "datePublished": "2024-04-25",
+  "author": "Javier Sánchez"
+},
+{
+  "id": 3,
+  "title": "Innovación Educativa a través de la Agilidad",
+  "summary": "Un vistazo a cómo la agilidad está fomentando la innovación en las estrategias de enseñanza y aprendizaje.",
+  "imageUrl": "https://images.pexels.com/photos/4145154/pexels-photo-4145154.jpeg",
+  "link": "https://www.innovativelearning.com/educational-technology/agile-education.html",
+  "content": "La innovación educativa es crucial para mantenerse al día con las demandas del siglo XXI. Integrando la metodología ágil, las escuelas y universidades están descubriendo nuevas formas de enseñar que no solo capturan el interés de los estudiantes, sino que también promueven un aprendizaje más profundo y significativo. Este artículo explora cómo las técnicas ágiles pueden ser utilizadas para fomentar la creatividad tanto en estudiantes como en profesores.",
+  "datePublished": "2024-04-18",
+  "author": "Lorena Ruiz"
+},
+{
+  "id": 4,
+  "title": "Desafíos y Soluciones Ágiles en Educación a Distancia",
+  "summary": "Análisis de cómo la agilidad puede ayudar a superar los desafíos de la educación a distancia.",
+  "imageUrl": "https://empresasconectadas.co/wp-content/uploads/2020/07/educaci%C3%B3n.jpg",
+  "link": "https://www.educationnext.org/what-international-test-data-tell-us-about-distance-learning/",
+  "content": "Con el aumento de la educación a distancia, las instituciones enfrentan el reto de mantener la calidad y la interacción. Este artículo examina cómo las prácticas ágiles, como la planificación iterativa y la revisión continua, pueden mejorar la experiencia de aprendizaje en línea, facilitando una mejor comunicación y adaptación a las necesidades de los estudiantes de manera oportuna.",
+  "datePublished": "2024-04-22",
+  "author": "Daniel Morales"
+},
+{
+  "id": 5,
+  "title": "Fomentando la Colaboración Estudiantil con Técnicas Ágiles",
+  "summary": "Explora cómo las herramientas y técnicas ágiles pueden mejorar la colaboración entre estudiantes.",
+  "imageUrl": "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b",
+  "link": "https://www.agileineducation.org/agile-student-teams",
+  "content": "La colaboración es una piedra angular del aprendizaje moderno. Utilizando técnicas ágiles, los educadores pueden promover un ambiente de aprendizaje más inclusivo y cooperativo. Este artículo detalla cómo las prácticas ágiles pueden ser efectivas para mejorar la comunicación y el trabajo en equipo entre los estudiantes, facilitando un entorno de aprendizaje más dinámico y participativo.",
+  "datePublished": "2024-04-15",
+  "author": "Clara Gómez"
+}
+]

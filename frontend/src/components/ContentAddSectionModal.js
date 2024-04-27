@@ -43,6 +43,12 @@ export default function ContentAddSectionModal() {
       />
     <TextField
         size='small'
+        id="link"
+        label={<Typography sx={{fontSize:fontSizeAll}}>Link de redirección *</Typography>}
+        type='text'
+      />
+    <TextField
+        size='small'
         id="content"
         label={<Typography sx={{fontSize:fontSizeAll}}>Contenido * </Typography>}
         type='text'

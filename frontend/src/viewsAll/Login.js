@@ -5,6 +5,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { Typography } from '@mui/material';
 import BasicAlert from '../components/BasicAlert';
+import logo from './logoADE.png';
 
 function Login() {
     const [username, setUsername] = useState('');
@@ -76,7 +77,7 @@ function Login() {
                 ToolKit
             </Typography>
             <img 
-                src="https://r2.easyimg.io/i9pvlu54d/captura_de_pantalla_2023-11-02_172202-removebg-preview_-_copia.png" // URL de la imagen
+                src={logo} // URL de la imagen
                 alt="Descripción de la imagen" 
                 style={{ width: 'auto', marginBottom: '2vh' , marginTop: 0}} // Ajusta el estilo según sea necesario
             />

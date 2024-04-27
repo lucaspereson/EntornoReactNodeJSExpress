@@ -46,6 +46,13 @@ export default function ContentModSectionModal(props) {
         type='text'
         defaultValue={data.imageUrl}
       />
+      <TextField
+        size='small'
+        id="link"
+        label={<Typography sx={{fontSize:fontSizeAll}}>Link de redirección *</Typography>}
+        type='text'
+        defaultValue={data.link}
+      />
     <TextField
         size='small'
         id="content"
@@ -71,7 +78,7 @@ export default function ContentModSectionModal(props) {
         <Button variant="contained" type="submit" sx={{ mt:2, width: '48%', alignSelf: 'center', bgcolor: '#007FFF', '&:hover': {bgcolor: 'blue', }}}>
           <Typography sx={{fontSize:fontSizeAll}}>GUARDAR CAMBIOS</Typography>
         </Button>
-        <Button variant="contained" type="submit" sx={{ mt:2, width: '48%', alignSelf: 'center', bgcolor: 'red', '&:hover': {bgcolor: 'blue', }}}>
+        <Button variant="contained" type="submit" sx={{ mt:2, width: '48%', alignSelf: 'center', bgcolor: 'red', '&:hover': {bgcolor: '#7a3733', }}}>
           <Typography sx={{fontSize:fontSizeAll}}>ELIMINAR</Typography>
         </Button>
       </Box>
