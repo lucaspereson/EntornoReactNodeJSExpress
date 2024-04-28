@@ -19,7 +19,7 @@ function HomePage() {
   return (
     <div>
       <AppBar/>
-      <Typography variant="h4" sx={{ mt:13, mb: 4, textAlign: 'center' }}>Últimas Noticias</Typography>
+      <Typography variant="h4" sx={{ mt:13, mb: 4, textAlign: 'center', fontFamily: 'unset' }}>¡Artículos que podrían interesarte!</Typography>
       <Grid container justifyContent="center" spacing={2} marginBottom={5}>
         {newsList.length > 0 ? (
           newsList.map((news, index) => (

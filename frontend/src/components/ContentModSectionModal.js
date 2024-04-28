@@ -22,7 +22,7 @@ export default function ContentModSectionModal(props) {
         size='small'
         id="id"
         label={<Typography sx={{fontSize:fontSizeAll}}>Identificador *</Typography>}
-        type='number'
+        type='text'
         defaultValue={data.id}
       />
       <TextField
