@@ -1,6 +1,7 @@
 [
   {
     "id": "1",
+    "type": "article",
     "title": "Revolucionando la Pedagogía con Métodos Ágiles",
     "summary": "Exploramos cómo la metodología ágil puede transformar las prácticas pedagógicas en las aulas modernas.",
     "imageUrl": "https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg",
@@ -11,6 +12,7 @@
   },
   {
     "id": "2",
+    "type": "article",
     "title": "Agilidad en la Gestión Educativa: Casos de Éxito",
     "summary": "Este artículo destaca varios estudios de caso donde la agilidad ha mejorado significativamente la gestión educativa.",
     "imageUrl": "https://images.unsplash.com/photo-1584697964358-3e14ca57658b",
@@ -21,6 +23,7 @@
   },
   {
     "id": "3",
+    "type": "article",
     "title": "Innovación Educativa a través de la Agilidad",
     "summary": "Un vistazo a cómo la agilidad está fomentando la innovación en las estrategias de enseñanza y aprendizaje.",
     "imageUrl": "https://images.pexels.com/photos/4145154/pexels-photo-4145154.jpeg",
@@ -31,6 +34,7 @@
   },
   {
     "id": "4",
+    "type": "article",
     "title": "Desafíos y Soluciones Ágiles en Educación a Distancia",
     "summary": "Análisis de cómo la agilidad puede ayudar a superar los desafíos de la educación a distancia.",
     "imageUrl": "https://empresasconectadas.co/wp-content/uploads/2020/07/educaci%C3%B3n.jpg",
@@ -41,10 +45,33 @@
   },
   {
     "id": "5",
+    "type": "article",
     "title": "Fomentando la Colaboración Estudiantil con Técnicas Ágiles",
     "summary": "Explora cómo las herramientas y técnicas ágiles pueden mejorar la colaboración entre estudiantes.",
     "imageUrl": "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b",
     "link": "https://www.agileineducation.org/agile-student-teams",
+    "content": "La colaboración es una piedra angular del aprendizaje moderno. Utilizando técnicas ágiles, los educadores pueden promover un ambiente de aprendizaje más inclusivo y cooperativo. Este artículo detalla cómo las prácticas ágiles pueden ser efectivas para mejorar la comunicación y el trabajo en equipo entre los estudiantes, facilitando un entorno de aprendizaje más dinámico y participativo.",
+    "datePublished": "2024-04-15",
+    "author": "Clara Gómez"
+  },
+  {
+    "id": "6",
+    "type": "video",
+    "title": "Enfoque Agile en la educación",
+    "summary": "¿Sabes qué es el enfoque #Agile y cómo aplicarlo a la educación? 🤔 Apréndelo aquí.",
+    "imageUrl": "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b",
+    "link": "https://www.youtube.com/watch?v=2IoerRdXlE8&ab_channel=%40prende_mx",
+    "content": "El enfoque ágil es una metodología que se ha popularizado en el mundo de la gestión de proyectos, pero ¿cómo puede aplicarse en el ámbito educativo? Este video explora los principios y prácticas ágiles y cómo pueden ser adaptados para mejorar la enseñanza y el aprendizaje en las aulas. Descubre cómo la agilidad puede fomentar la innovación, la colaboración y la adaptabilidad en la educación.",
+    "datePublished": "2024-04-15",
+    "author": "@prende_mx"
+  },
+  {
+    "id": "7",
+    "type": "video",
+    "title": "Como manejar un proyecto con agilidad",
+    "summary": "Explora cómo las herramientas y técnicas ágiles pueden mejorar la colaboración en un proyecto.",
+    "imageUrl": "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b",
+    "link": "https://www.youtube.com/watch?v=v3fLx7VHxGM&ab_channel=%C3%81gilEs-PorCrisR%C3%BAa",
     "content": "La colaboración es una piedra angular del aprendizaje moderno. Utilizando técnicas ágiles, los educadores pueden promover un ambiente de aprendizaje más inclusivo y cooperativo. Este artículo detalla cómo las prácticas ágiles pueden ser efectivas para mejorar la comunicación y el trabajo en equipo entre los estudiantes, facilitando un entorno de aprendizaje más dinámico y participativo.",
     "datePublished": "2024-04-15",
     "author": "Clara Gómez"

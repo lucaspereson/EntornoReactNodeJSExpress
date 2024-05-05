@@ -5,7 +5,7 @@ POST http://localhost:5001/login
 Content-Type: application/json
 
 {
-    "username": "Lucas", 
+    "username": "Admin", 
     "password": "1234"
 }
 
@@ -16,3 +16,21 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJ1c2Vyb
 
 ###
 GET http://localhost:5001/news
+
+###
+PATCH http://localhost:5001/updateNews/7
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIiLCJ1c2VybmFtZSI6IkFkbWluIiwiaWF0IjoxNzE0NTc4ODUwLCJleHAiOjE3MTQ1ODI0NTB9.MLLuGa_9qP9sci3X9J6b1XM3X1IUfCO2cnpttUWBKZU
+{
+    "type": "video",
+    "title": "Como manejar un proyecto con agilidad",
+    "summary": "Explora cómo las herramientas y técnicas ágiles pueden mejorar la colaboración en un proyecto.",
+    "imageUrl": "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b",
+    "link": "https://www.youtube.com/watch?v=v3fLx7VHxGM&ab_channel=%C3%81gilEs-PorCrisR%C3%BAa",
+    "content": "La colaboración es una piedra angular del aprendizaje moderno. Utilizando técnicas ágiles, los educadores pueden promover un ambiente de aprendizaje más inclusivo y cooperativo. Este artículo detalla cómo las prácticas ágiles pueden ser efectivas para mejorar la comunicación y el trabajo en equipo entre los estudiantes, facilitando un entorno de aprendizaje más dinámico y participativo.",
+    "datePublished": "2024-04-15",
+    "author": "Lucas"
+}
+
+###
+GET http://localhost:5001/planification/1

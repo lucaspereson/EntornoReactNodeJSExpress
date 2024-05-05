@@ -2,11 +2,11 @@ import React from "react";
 import AppBar from "../components/AppBar.js";
 import TableGroups from "../components/TableGroups.js";
 import HorizontalLinearStepper from "../components/HorizontalLinearStepper.js";
-import TeamConfigurator from "../components/TeamConfigurator.js";
+import TeamConfigurator from "../components/TeamConfigurator.js.js";
 import GenerateTeams from "../components/GenerateTeams.js";
 import { Typography } from "@mui/material";
 
-function ArmarGrupos() {
+function ArmarEquipos() {
   return (
     <React.Fragment>
         <AppBar />
@@ -22,4 +22,4 @@ function ArmarGrupos() {
   );
 }
 
-export default ArmarGrupos;
+export default ArmarEquipos;

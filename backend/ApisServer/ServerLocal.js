@@ -9,6 +9,7 @@ const { sign } = jwt;
 import { v4 as uuidv4 } from 'uuid'; // Para generar IDs únicos
 const filePathUsers = './files/users.json';
 const filePathNews = './files/news.json'
+const filePathPlanification = './files/planifications.json'
 const app = express();
 const secretKey = process.env.JWT_SECRET;
 
@@ -33,7 +34,7 @@ app.post('/register', async (req, res) => {
         // Leer el archivo JSON donde se almacenan los usuarios
         const data = await fs.readFile(filePathUsers, 'utf8');
         const users = JSON.parse(data);
-        
+
         // Verificar si el usuario ya existe
         if (users.find(user => user.username === username)) {
             return res.status(409).send('User already exists');
@@ -75,7 +76,7 @@ app.post('/login', async (req, res) => {
 
 function generateNewToken(user) {
     const newToken = sign({
-        id: user.id, 
+        id: user.id,
         username: user.username
     }, secretKey, { expiresIn: '1h' });
 
@@ -87,42 +88,43 @@ function verifyToken(req, res, next) {
     const header = req.header("Authorization") || "";
     const token = header.split(" ")[1];
     if (!token) {
-      return res.status(401).json({ message: "Se requiere un token para la autenticación." });
+        return res.status(401).json({ message: "Se requiere un token para la autenticación." });
     }
     try {
-      const payload = jwt.verify(token, secretKey);
-      req.username = payload.username;
-      req.newToken = generateNewToken(payload);
-      next();
+        const payload = jwt.verify(token, secretKey);
+        req.username = payload.username;
+        req.newToken = generateNewToken(payload);
+        next();
     } catch (error) {
-      return res.status(403).json({ message: "Token inválido" });
+        return res.status(403).json({ message: "Token inválido" });
     }
-  }
-  
-  app.get("/protected", verifyToken, (req, res) => {
+}
+
+app.get("/protected", verifyToken, (req, res) => {
     return res.status(200).json({ message: "Acceso concedido", token: req.newToken });
-  });
+});
 
 
-  app.get('/news', (req, res) => {
+app.get('/news', (req, res) => {
     // Suponiendo que processCSV devuelve los datos procesados como un objeto JSON
-    fs2.readFile(filePathNews, 'utf8', function(error, data) {
-      if (error) {
-          console.error('Error de procesamiento:', error);
-          res.status(500).send(`Error de procesamiento: ${error.message}`)
-      } else {
-          const jsonData = JSON.parse(data)
-          jsonData.reverse();
-          res.json(jsonData)}
-      })
-  });
+    fs2.readFile(filePathNews, 'utf8', function (error, data) {
+        if (error) {
+            console.error('Error de procesamiento:', error);
+            res.status(500).send(`Error de procesamiento: ${error.message}`)
+        } else {
+            const jsonData = JSON.parse(data)
+            jsonData.reverse();
+            res.json(jsonData)
+        }
+    })
+});
 
-  app.post('/addNews', async (req, res) => {
+app.post('/addNews', async (req, res) => {
     const { title, summary, imageUrl, link, content, datePublished, author } = req.body;
     try {
         const data = await fs.readFile(filePathNews, 'utf8');
         const news = JSON.parse(data);
-        
+
         const newNews = { id: uuidv4(), title, summary, imageUrl, link, content, datePublished, author };
         news.push(newNews);
         await fs.writeFile(filePathNews, JSON.stringify(news, null, 2), 'utf8');
@@ -131,6 +133,62 @@ function verifyToken(req, res, next) {
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
+});
+
+app.delete('/deleteNews/:id', async (req, res) => {
+    const id = req.params.id;
+    try {
+        const data = await fs.readFile(filePathNews, 'utf8');
+        const news = JSON.parse(data);
+        const index = news.findIndex(news => news.id === id);
+        if (index === -1) {
+            return res.status(404).send('News not found');
+        }
+        news.splice(index, 1);
+        await
+            fs.writeFile(filePathNews, JSON.stringify(news, null, 2), 'utf8');
+        res.status(200).send('News deleted');
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+app.patch('/updateNews/:id', async (req, res) => {
+    const id = req.params.id;
+    const { title, summary, imageUrl, link, content, datePublished, author } = req.body;
+    try {
+        const data = await fs.readFile(filePathNews, 'utf8');
+        const news = JSON.parse(data);
+        const index = news.findIndex(news => news.id === id);
+        if (index === -1) {
+            return res.status(404).send('News not found');
+        }
+        news[index] = { id, title, summary, imageUrl, link, content, datePublished, author };
+        await fs.writeFile(filePathNews, JSON.stringify(news, null, 2), 'utf8');
+        res.status(200).send('News updated');
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+
+
+// Endpoint para obtener eventos de calendario
+app.get('/planification/:id', (req, res) => {
+    const id = req.params.id;
+    fs.readFile(filePathPlanification, 'utf8')
+        .then(data => {
+            const planifications = JSON.parse(data);
+            const index = planifications.findIndex(plan => plan.id === id);
+            if (index === -1) {
+                return res.status(404).send(`Planificacion ${id} no encontrada`);
+            }
+            res.json(planifications[index]);
+        })
+        .catch(error => {
+            console.error('Error leyendo el archivo:', error);
+            res.status(500).send(`Error procesando la solicitud: ${error.message}`);
+        });
 });
 
 const PORT = process.env.PORT || 5001;

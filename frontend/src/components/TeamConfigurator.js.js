@@ -1,10 +1,10 @@
 // TeamConfigurator.js
 import React from 'react';
 import { Box, TextField, MenuItem, Typography, Button } from '@mui/material';
-import { useHeaders } from './HeadersProvider';
+import { useTeams } from './TeamsProvider';
 
 function TeamConfigurator() {
-    const [headers] = useHeaders();
+    const [headers, setHeaders, file, setFile, dataStudents, setDataStudents] = useTeams();
     const criterios = [
         {value: '0', label: 'No considerar',},
         {value: '1', label: 'Al menos 1',},

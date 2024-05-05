@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import NewsItem from '../components/NewsItem';
 import AppBar from '../components/AppBar';
+import RenderItem from '../components/RenderItem';
 import { Box, Grid, Typography, Button } from '@mui/material';
+import fondo from './fondo.jpg';
 
 function HomePage() {
   const [newsList, setNewsList] = useState([]);
@@ -16,38 +17,55 @@ function HomePage() {
     fetchNews().catch(console.error);
   }, []);
 
+
   return (
-    <div>
-      <AppBar/>
-      <Typography variant="h4" sx={{ mt:13, mb: 4, textAlign: 'center', fontFamily: 'unset' }}>¡Artículos que podrían interesarte!</Typography>
-      <Grid container justifyContent="center" spacing={2} marginBottom={5}>
+    <Box sx={{
+      backgroundImage: `url(${fondo})`,
+      backgroundPosition: 'center',
+      height: '100%',
+      width: 'auto',
+      top: 0,
+      left: 0,
+      overflow: 'auto',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: 2
+    }}
+    >
+      <AppBar />
+      <Typography variant="h4" sx={{ mt: 13, mb: 4, textAlign: 'center', fontFamily: 'unset', fontWeight: 700, color: 'white' }}>¡Artículos que podrían interesarte!</Typography>
+      <Grid container justifyContent="center" spacing={2} marginBottom={5} s>
         {newsList.length > 0 ? (
-          newsList.map((news, index) => (
-            <Grid item xs={index === 0 ? 12 : 6} key={news.id} sx={{ maxWidth: '1000px' }}>
-              <Box sx={{ 
-                display: 'flex', 
-                flexDirection: 'column', 
-                alignItems: 'center', 
-                justifyContent: 'center', 
-                p: 2, 
-                border: '1px solid blue', 
-                borderRadius: '8px', 
+          newsList.map((item, index) => (
+            <Grid item xs={index === 0 ? 12 : 6} key={item.id} sx={{ width: '100%' }}>
+              <Box sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                paddingX: 2,
+                paddingBottom: 2,
+                border: '1px solid blue',
+                borderRadius: '8px',
                 boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
                 bgcolor: index === 0 ? 'primary.light' : 'background.paper',
                 color: index === 0 ? 'common.white' : 'text.primary',
-                marginLeft:   index === 0 ? (10) : 
-                              index%2 === 0 ? (0) : 
-                              10,
-                marginRight:  index === 0 ? (10) : 
-                              index%2 === 0 ? (10) : 
-                              0,
+                marginLeft: index === 0 ? (10) :
+                  index % 2 === 0 ? (0) :
+                    10,
+                marginRight: index === 0 ? (10) :
+                  index % 2 === 0 ? (10) :
+                    0,
+
               }}>
-                <NewsItem news={news} />
-                <Button 
-                  variant="contained" 
-                  color="primary" 
-                  sx={{ mt: 2 }} 
-                  onClick={() => window.open(news.link, '_blank')}>
+                <RenderItem item={item} height={index === 0 ? ('100%') : ('350px')} />
+                <Button
+                  variant="contained"
+                  color="primary"
+                  sx={{ mt: 2 }}
+                  onClick={() => window.open(item.link, '_blank')}>
                   Leer más
                 </Button>
               </Box>
@@ -57,7 +75,7 @@ function HomePage() {
           <Typography>Cargando noticias...</Typography>
         )}
       </Grid>
-    </div>
+    </Box>
   );
 }
 

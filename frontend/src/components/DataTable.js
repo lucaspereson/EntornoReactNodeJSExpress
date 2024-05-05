@@ -20,7 +20,7 @@ export default function DataTable({columns, rows}) {
           borderColor: 'primary.light', '& .MuiDataGrid-cell:hover': {
             color: 'primary.main',},
           minHeight: 130,
-          marginX:10, marginY:5 }}
+          marginX:1, marginY:5 }}
       />
     </div>
   );

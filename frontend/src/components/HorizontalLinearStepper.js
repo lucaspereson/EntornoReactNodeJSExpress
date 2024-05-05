@@ -5,12 +5,13 @@ import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import {useTeams} from './TeamsProvider';
 
 const steps = ['Carga de datos de integrantes', 'Configuración de equipos', 'Creación de equipos'];
 
 export default function HorizontalLinearStepper(props) {
   const {Step1, Step2, Step3} = props;
-
+  const [headers, setHeaders, file, setFile, dataStudents, setDataStudents] = useTeams(); 
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
 
@@ -34,10 +35,11 @@ export default function HorizontalLinearStepper(props) {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  
-
   const handleReset = () => {
     setActiveStep(0);
+    setHeaders([]);
+    setFile(null);
+    setDataStudents([]);
   };
 
   return (

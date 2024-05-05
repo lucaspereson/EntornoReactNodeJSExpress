@@ -17,17 +17,21 @@ connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: tr
     .catch(err => console.log(err));
 
 app.post('/register', async (req, res) => {
-    const { username, password } = req.body;
-    const salt = await genSalt(10);
-    const hashedPassword = await hash(password, salt);
-
-    const newUser = new User({ username, password: hashedPassword });
+    const { name, lastname, email, username, password, role } = req.body;
 
     try {
+        if (await User.findOne({ username })) {
+            return res.status(409).send('User already exists');
+        }
+
+        const salt = await genSalt(10);
+        const hashedPassword = await hash(password, salt);
+
+        const newUser = new User({ name, lastname, email, username, role, password: hashedPassword });
         await newUser.save();
         res.status(201).send('User created');
     } catch (err) {
-        res.status(500).json(err);
+        res.status(500).json(err.message);
     }
 });
 
@@ -43,4 +47,17 @@ app.post('/login', async (req, res) => {
     }
 });
 
+app.post('/addNews', async (req, res) => {
+    const { title, summary, imageUrl, link, content, datePublished, author } = req.body;
+    try {
+        const newNews = new News({ title, summary, imageUrl, link, content, datePublished, author });
+        await newNews.save();
+        res.status(201).send('News created');
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+

@@ -17,7 +17,7 @@ import { useAuth } from '../components/AuthContext'; // Asegúrate de que la rut
 import BasicAlert from '../components/BasicAlert'; // Para alertas
 
 const settings = ['Sesión',['Perfil', 'Cuenta']];
-const pagesProfesor = [['Home', ['Home']], ['Heramientas', ['Herramientas']], ['Grupos', ['Armar equipos', 'Modificar equipos', 'Eliminar equipos', 'Ruta de aprendizaje']], ['Reportes', ['Reportes']]];
+const pagesProfesor = [['Home', ['Home']], ['Heramientas', ['Herramientas']], ['Equipos', ['Armar equipos', 'Modificar equipos', 'Eliminar equipos', 'Ruta de aprendizaje']], ['Reportes', ['Reportes']]];
 const pagesAdmin = [['Home', ['HomeAdmin']], ['Usuarios', ['Agregar usuario', 'Gestionar usuarios']], ['Modulos', ['Modulos']]];
 
 function ResponsiveAppBar() {
