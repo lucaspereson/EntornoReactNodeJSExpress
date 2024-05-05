@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "backend": "nodemon backend/server.js",
     "start-backend": "node --watch backend/ApisServer/ServerLocal.js",
     "start-frontend": "cd frontend && npm start",
     "start": "concurrently \"npm run start-frontend\" \"npm run start-backend\"",
